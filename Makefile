@@ -16,4 +16,4 @@ test: 9cc
 	$(TEST)
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(TARGET) $(OBJS)
