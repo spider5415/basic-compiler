@@ -18,8 +18,9 @@ assert() {
   rm tmp tmp.s
 }
 
-assert 2 '1+1'
+assert 2 '1 + 1'
 assert 20 '40-20+2-2'
 assert 21 "5+20-4"
+assert 41 " 12 + 34 - 5 "
 
 echo OK

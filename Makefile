@@ -3,7 +3,7 @@ RM = rm -f
 TEST = ./test.sh
 
 CFLAGS = -g -static
-OBJS = main.o
+OBJS = main.o util.o token.o
 TARGET = 9cc
 
 $(TARGET): $(OBJS)
@@ -11,6 +11,11 @@ $(TARGET): $(OBJS)
 
 .cpp.o:
 	$(CC) $(CFLAGS) -c $<
+
+.hpp.o:
+
+main.o: util.hpp token.hpp
+token.o: util.hpp
 
 test: 9cc
 	$(TEST)
