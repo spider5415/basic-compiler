@@ -13,12 +13,14 @@ enum TokenKind {
 };
 
 struct Token {
+    int pos;
     TokenKind kind;
     string val;
 };
 
 class TokenStream {
 private:
+    const string prog;
     vector<Token> tokens;
     int ptr;
 public:
@@ -27,6 +29,9 @@ public:
     inline Token& pop(){return tokens[ptr++];}
     string getToken(TokenKind kind);
     inline int getInt(){return stoi(getToken(TK_NUMBER));}
+
+    void error(const char *fmt, ...);
+    void error(int pos, const char *fmt, ...);
 };
 
 #endif
